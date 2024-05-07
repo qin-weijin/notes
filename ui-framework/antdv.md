@@ -51,7 +51,7 @@ app.config.globalProperties.$message = message;   // 局部挂载 Antd message �
 
 **主题实例**
 
-```tsx
+```
 import { theme } from 'ant-design-vue'
 const { useToken, defaultSeed } = theme;
 const { token } = useToken();             // 应用当前属性如: token.colorPrimary
