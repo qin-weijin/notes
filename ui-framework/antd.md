@@ -8,7 +8,7 @@
 
 ## Theme or ConfigProvider 全局配置设置主题
 
-```tsx
+```
 import { theme, ConfigProvider } from 'antd';
 const { getDesignToken, useToken } = theme;       // Theme API
 const globalToken = getDesignToken(config);       // 导出 token
@@ -71,7 +71,7 @@ interface AliasToken {
 
 ## ConfigProvider 全局配置
   
-```tsx
+```
 import { Affix, App, ConfigProvider } from 'antd';
 
 const { componentDisabled, componentSize } = ConfigProvider.useConfig(); // 获取父 ConfigProvider

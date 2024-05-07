@@ -4,7 +4,7 @@
 
 ## Layout 布局组件
 
-```tsx
+```
 import { Layout, Grid, Divider, Flex, Col, Row, Space } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 const { useBreakpoint } = Grid;
@@ -102,7 +102,7 @@ const Navigation = () => (
 
 ## Card
 
-```tsx
+```
 import { Card } from 'antd';  
 const { Meta } = Card;
 const Navigation = () => (
