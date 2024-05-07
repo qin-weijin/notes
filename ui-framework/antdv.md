@@ -70,6 +70,40 @@ const {
   modal, 
   notification 
 } = App.useApp()
-
 const showMessage = () => { message.success('Success!') }
+```
+
+## 其他
+
+**StyleProvider 样式兼容**
+
+```
+<a-style-provider 
+  hash-priority="low | high"                            // 开启 :where, 降低 CSS Selector 优先级
+  :transformers="[legacyLogicalPropertiesTransformer]"  // 兼容, 转换
+  cache={cache}
+></a-style-provider>
+```  
+
+**自动按需引入**
+
+    $ cnpm install unplugin-vue-components -D
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite';
+import Components from 'unplugin-vue-components/vite';
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
+export default defineConfig({
+  plugins: [
+    // ...
+    Components({
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false, // css in js
+        }),
+      ],
+    }),
+  ],
+});    
 ```
