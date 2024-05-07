@@ -31,7 +31,7 @@ const App = () => (
 - 梯度变量 Map Token 是由基础变量派生的具体样式。 `colorPrimaryBg`
 - 化名变量 Alias Token 是拥有共性的，用于批处理的特殊梯度变量。`colorLink`
 
-```tsx
+```ts
 interface AliasToken {
   borderRadius,
   colorBgBase: '#fff',

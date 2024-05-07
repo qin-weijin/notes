@@ -43,7 +43,7 @@ const Layout = () => (<>
 
 ## 导航
 
-```tsx
+```
 import { Anchor, Breadcrumb, Dropdown, Menu, Pagination, Steps } from 'antd';
 
 // Menu Item
