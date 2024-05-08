@@ -86,6 +86,13 @@ ConfigProvider.config({
 })
 return (
   <ConfigProvider
+    theme={{
+      token: {},
+      components: {}
+    }}
+  ></ConfigProvider>
+)}
+```
     autoInsertSpaceInButton={true}            // Btn 俩个汉字中间隙
     componentDisabled={false}                 // 禁用状态
     componentSize='small | middle | large'    // 组件尺寸
@@ -102,10 +109,3 @@ return (
     virtual={true}                            // 虚拟滚动
     warning={ strict: Boolean }               // 警告级别
     wave={wave}                               // 波纹
-    theme={{
-      token: {},
-      components: {}
-    }}
-  ></ConfigProvider>
-)}
-```
