@@ -16,13 +16,6 @@ const globalToken = getDesignToken(config);       // 导出 token
 const { token } = useToken();                     // 导出 token
 const App: React.FC = () => (
 	<ConfigProvider theme={{
-	  inherit: Boolean,                               // 继承
-	  cssVar: Boolean,                                // 开启 CSS 变量
-	  hashed: Boolean,                                // 生成独立的 hash 值以隔离主题
-	  // 算法，作为展开梯度变量的公式。
-	  algorithm: [ theme.defaultAlgorithm, theme.darkAlgorithm, theme.compactAlgorithm ],
-	  token: AliasToken,                              // 全局样式配置
-	  components: { [Component]: AliasToken },        // 组件样式配置
 	}}></ConfigProvider>
 )
 ```
