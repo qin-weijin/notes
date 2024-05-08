@@ -16,6 +16,7 @@ const globalToken = getDesignToken(config);       // 导出 token
 const { token } = useToken();                     // 导出 token
 const App: React.FC = () => (
 	<ConfigProvider theme={{
+		inherit: Boolean,
 	}}></ConfigProvider>
 )
 ```
