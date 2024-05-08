@@ -71,3 +71,41 @@ interface AliasToken {
   zIndexPopupBase,
 }
 ```
+
+## ConfigProvider 全局配置
+  
+```tsx
+import { Affix, App, ConfigProvider } from 'antd';
+
+const { componentDisabled, componentSize } = ConfigProvider.useConfig(); // 获取父 ConfigProvider
+
+const App: React.FC = () => {
+ConfigProvider.ConfigContext
+ConfigProvider.config({
+  holderRender: (children) => ()
+})
+return (
+  <ConfigProvider
+    autoInsertSpaceInButton={true}            // Btn 俩个汉字中间隙
+    componentDisabled={false}                 // 禁用状态
+    componentSize='small | middle | large'    // 组件尺寸
+    csp={ nonce: string }                     // 内容安全策略标头
+    direction='ltr | rtl'                     // 方向
+    getPopupContainer={()=>document.body}     // Select, Tooltip, Menu 弹出框渲染的父节点
+    getTargetContainer={()=>HTMLElement}      // Affix、Anchor 滚动元素容器
+    iconPrefixCls='anticon'                   // Icon 前缀
+    locale={{}}                               // 语言包配置
+    popupMatchSelectWidth={Boolean | Number}  // 下拉菜单和选择器
+    popupOverflow='viewport | scroll'         // Select 类组件弹层逻辑
+    prefixCls='String'                        // 前缀
+    renderEmpty={(componentName)=>ReactNode}  // 自定义组件空状态    
+    virtual={true}                            // 虚拟滚动
+    warning={ strict: Boolean }               // 警告级别
+    wave={wave}                               // 波纹
+    theme={{
+      token: {},
+      components: {}
+    }}
+  ></ConfigProvider>
+)}
+```
