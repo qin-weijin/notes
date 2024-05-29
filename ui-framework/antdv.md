@@ -1,6 +1,7 @@
 # [Antdv](https://www.antdv.com/docs/vue/introduce-cn)
 
     $ npm install ant-design-vue@4.x --save
+    $ npm install unplugin-vue-components -D
 
 **全局注册**
 

@@ -1,88 +1,51 @@
 # [UnoCSS](https://unocss.nodejs.cn/)
 
-    $ npm add -D unocss
+## [集成 Vite](https://unocss.nodejs.cn/integrations/vite)
+
+    $ npm install -D unocss
 
 ```ts
-/* main.js */
-import 'virtual:uno.css'
+
+// main.ts
+  import 'virtual:uno.css'
+
 // vite.config.ts
-import UnoCSS from 'unocss/vite'
-export default defineConfig({ plugins: [UnoCSS()]})
+  import UnoCSS from 'unocss/vite'
+  import { defineConfig } from 'vite'
+  export default defineConfig({
+    plugins: [ UnoCSS() ]
+  })
 ```
 
-**样式重置**
-
-    $ npm add @unocss/reset
+## [配置](https://unocss.nodejs.cn/config/)
 
 ```ts
-
-/* main.ts */
-
-// Normalize.css
-import '@unocss/reset/normalize.css'
-
-// sanitize.css
-import '@unocss/reset/sanitize/sanitize.css'
-import '@unocss/reset/sanitize/assets.css'
-
-// Eric Meyer
-import '@unocss/reset/eric-meyer.css'
-
-// Tailwind
-import '@unocss/reset/tailwind.css'
-import '@unocss/reset/tailwind-compat.css'
-```
-
-## [配置文件](https://unocss.nodejs.cn/config/) `./uno.config.ts`
-
-```ts
-import { defineConfig, presetUno, transformerDirectives } from 'unocss'
-export default defineConfig({  
-  // 自定义规则
-  rules: [],
-  // 合并规则 
-  shortcuts: { 'btn': 'py-2 px-4' },
-  // 应用主题
-  theme: { colors: {} },
-  // 应用预设  
-  presets: [presetUno()],
-  // 应用转换器
-  transformers: [ transformerDirectives() ],
+// ./uno.config.ts
+import { defineConfig } from 'unocss'
+export default defineConfig({
+  rules: [],                            // 自定义规则
+  shortcuts: {},                          // 合并规则
+  theme: {},                              // 主题
+  variants: [],                           // 变体
+  extractors: [],                         // 提取器
+  transformers: [],                       // 转换器  
+  preflights: [],                         // 初始化
+  layers: {},                             // 层
+  autocomplete: [],                       // 自动补全
+  presets: [presetUno(presetOptions)]     // 预设 - $ npm install -D @unocss/preset-uno
 })
+
+
+/* 预设选项 */
+
+const presetOptions = {
+  dark: class,
+  attributifyPseudo: false,               // 生成伪选择器
+  variablePrefix: 'un-',                  // 自定义属性前缀
+  prefix: 'tw-',                          // 添加前缀
+  preflight: true                         // CSS Reset  
+}
 ```
-
-## [预设](https://unocss.nodejs.cn/presets/)
-
-**Presets**
-
-| Package                   | Description | 
-| ------------------------- | ----------- |
-| @unocss/presetUno         | 默认预设 |
-| @unocss/presetMini        | 轻量化的 |
-| @unocss/presetWind        | 紧凑的, from Tailwind / Windi |
-| @unocss/presetAttributify | 属性化模式 |
-| @unocss/presetTagify      | 标签化模式 |
-| @unocss/presetIcons       | 纯 CSS 图标, from Iconify |
-| @unocss/presetWebFonts    | 网络字体, from Google Fonts |
-| @unocss/presetTypography  | 排版预设 |
-| @unocss/presetRemToPx     | 转换 rem 为 px |
-
-**Transformers 转换器**
-
-| Package                             | Description | 
-| ----------------------------------- | ----------- |
-| @unocss/transformer-variant-group   | Windi 变体组功能 | 
-| @unocss/transformer-directives      | CSS 指令转换, 如 @apply | 
-| @unocss/transformer-compile-class   | 将一组类编译为一个类 | 
-| @unocss/transformer-attributify-jsx | 支持 JSX/TSX 中的无值属性 | 
-
-**Extractors 提取器**
-
-| Package                              | Description | 
-| ------------------------------------ | ----------- |
-| @unocss/extractor-pug                | Pug 提取器 |
-| @unocss/extractor-svelte             | Svelte 提取器 |
-| @unocss/extractor-arbitrary-variants | 提取器支持工具的任意变体 |
 
 ## [Tailwind CSS](https://tailwind.nodejs.cn/)
 
